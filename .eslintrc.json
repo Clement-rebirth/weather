@@ -62,6 +62,7 @@
             }
         ],
         "no-console": ["warn", { "allow": ["warn", "error"] }],
+        "prefer-destructuring": "off",
         "import/order": "off",
         "react/prop-types": "off",
         "no-alert": "off",
