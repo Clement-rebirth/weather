@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import { fetchForecasts } from './features/forecast/forecastSlice';
-import { searchCityWithName } from './features/city/citySlice';
+import { searchCityByName } from './features/city/citySlice';
 import { City } from './types/city';
 import { fetchCoordinates } from './features/coordinate/coordinateSlice';
 
@@ -12,6 +12,7 @@ import './App.css';
 const App = () => {
   const [cityName, setCityName] = useState('');
   const [city, setCity] = useState<City | null>(null);
+  const [showAutocomplete, setShowAutocomplete] = useState(false);
 
   const dispatch = useAppDispatch();
 
@@ -28,6 +29,7 @@ const App = () => {
       const cityObj = JSON.parse(localStorage.getItem('city') || '{}') as City;
       setCity(cityObj);
       setCityName(cityObj.nom);
+      setShowAutocomplete(false);
     }
   }, []);
 
@@ -48,21 +50,29 @@ const App = () => {
   }, [city, dispatch]);
 
   useEffect(() => {
-    dispatch(searchCityWithName(cityName));
+    dispatch(searchCityByName(cityName));
   }, [cityName, dispatch]);
 
   const selectCity = (cityToSelect: City) => {
     setCity(cityToSelect);
+    setCityName(cityToSelect.nom);
     localStorage.setItem('city', JSON.stringify(cityToSelect));
+    setShowAutocomplete(false);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCityName(e.target.value);
+    setShowAutocomplete(true);
   };
 
   return (
     <div className='App'>
       <Header
         cityName={cityName}
-        handleChange={e => setCityName(e.target.value)}
+        handleChange={handleChange}
         cities={cities}
         selectCity={selectCity}
+        showAutocomplete={showAutocomplete}
       />
     </div>
   );

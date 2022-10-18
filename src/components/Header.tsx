@@ -7,10 +7,11 @@ interface HeaderProps {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   cities: CitySchema[] | null;
   selectCity: (cityToSelect: CitySchema) => void;
+  showAutocomplete: boolean;
 }
 
 const Header = ({
-  cityName, handleChange, cities, selectCity,
+  cityName, handleChange, cities, selectCity, showAutocomplete,
 }: HeaderProps) => (
   <header>
     <div className='search-input-container'>
@@ -19,7 +20,7 @@ const Header = ({
     </div>
 
     <div className='autocomplete'>
-      { cities && cities.map((city, index) => (
+      { (cities && showAutocomplete) && cities.map((city, index) => (
         <City key={index} city={city} selectCity={selectCity} />
       )) }
     </div>

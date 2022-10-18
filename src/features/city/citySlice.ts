@@ -13,7 +13,7 @@ const initialState: InitialState = {
   error: '',
 };
 
-export const searchCityWithName = createAsyncThunk('city/searchCityWithName', async (cityName: string) => {
+export const searchCityByName = createAsyncThunk('city/searchCityByName', async (cityName: string) => {
   try {
     const response = await fetch(`https://geo.api.gouv.fr/communes?nom=${cityName}&fields=departement&boost=population&limit=10`);
     return response.json();
@@ -27,17 +27,17 @@ const citySlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(searchCityWithName.pending, state => {
+    builder.addCase(searchCityByName.pending, state => {
       state.loading = true;
     });
 
-    builder.addCase(searchCityWithName.fulfilled, (state, action: PayloadAction<City[]>) => {
+    builder.addCase(searchCityByName.fulfilled, (state, action: PayloadAction<City[]>) => {
       state.loading = false;
       state.cities = action.payload;
       state.error = '';
     });
 
-    builder.addCase(searchCityWithName.rejected, (state, action) => {
+    builder.addCase(searchCityByName.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message || 'An error occured';
     });
