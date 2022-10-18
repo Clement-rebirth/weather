@@ -3,11 +3,11 @@ import axios from 'axios';
 
 const handler: Handler = async event => {
   if (!event.queryStringParameters) throw new Error('Missing query parameters');
-  const { lat, long, lang } = event.queryStringParameters;
-  const OPEN_WEATHER_API_KEY = process.env.OPEN_WEATHER_API_KEY;
+  const { cityName, region } = event.queryStringParameters;
+  const POSITION_STACK_API_KEY = process.env.POSITION_STACK_API_KEY;
 
   // forecast for 5 days with 3 hours step
-  const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${OPEN_WEATHER_API_KEY}&lang=${lang}`;
+  const url = `http://api.positionstack.com/v1/forward?access_key=${POSITION_STACK_API_KEY}&query=${cityName}&region=${region}`;
 
   try {
     const { data } = await axios.get(url);

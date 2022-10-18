@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from './app/hooks';
 import { fetchForecasts } from './features/forecast/forecastSlice';
 import { searchCityWithName } from './features/city/citySlice';
 import { City } from './types/city';
+import { fetchCoordinates } from './features/coordinate/coordinateSlice';
 
 import Header from './components/Header';
 
@@ -10,34 +11,49 @@ import './App.css';
 
 const App = () => {
   const [cityName, setCityName] = useState('');
-  const [city, setCity] = useState(localStorage.getItem('city') ? localStorage.getItem('city') : null);
+  const [city, setCity] = useState<City | null>(null);
 
   const dispatch = useAppDispatch();
-  // const { loading, forecasts, error } = useAppSelector(state => state.forecast);
-  const {
-    loading, selectedCity, cities, error,
-  } = useAppSelector(state => state.city);
 
-  // useEffect(() => {
-  //   dispatch(fetchForecasts());
-  // }, [dispatch]);
-
-  // useEffect(() => {
-  //   console.log(forecasts);
-  // }, [loading, forecasts, error]);
+  const { forecasts } = useAppSelector(state => state.forecast);
+  const { cities } = useAppSelector(state => state.city);
+  const { coordinates } = useAppSelector(state => state.coordinate);
 
   useEffect(() => {
-    console.log(city);
-  }, [city]);
+    console.log(forecasts);
+  }, [forecasts]);
+
+  useEffect(() => {
+    if (localStorage.getItem('city')) {
+      const cityObj = JSON.parse(localStorage.getItem('city') || '{}') as City;
+      setCity(cityObj);
+      setCityName(cityObj.nom);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (coordinates && coordinates[0]) {
+      dispatch(fetchForecasts({
+        lat: coordinates[0].latitude,
+        long: coordinates[0].longitude,
+        lang: 'fr',
+      }));
+    }
+  }, [coordinates, dispatch]);
+
+  useEffect(() => {
+    if (city) {
+      dispatch(fetchCoordinates(city));
+    }
+  }, [city, dispatch]);
 
   useEffect(() => {
     dispatch(searchCityWithName(cityName));
   }, [cityName, dispatch]);
 
   const selectCity = (cityToSelect: City) => {
-    const cityToSelectName = cityToSelect.nom;
-    setCity(cityToSelectName);
-    localStorage.setItem('city', cityToSelectName);
+    setCity(cityToSelect);
+    localStorage.setItem('city', JSON.stringify(cityToSelect));
   };
 
   return (

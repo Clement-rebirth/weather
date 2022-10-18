@@ -3,21 +3,19 @@ import { City } from '../../types/city';
 
 interface InitialState {
   loading: boolean;
-  selectedCity: string | null;
   cities: City[] | null;
   error: string;
 }
 
 const initialState: InitialState = {
-  loading: true,
-  selectedCity: null,
+  loading: false,
   cities: null,
   error: '',
 };
 
 export const searchCityWithName = createAsyncThunk('city/searchCityWithName', async (cityName: string) => {
   try {
-    const response = await fetch(`https://geo.api.gouv.fr/communes?nom=${cityName}&fields=departement&boost=population&limit=5`);
+    const response = await fetch(`https://geo.api.gouv.fr/communes?nom=${cityName}&fields=departement&boost=population&limit=10`);
     return response.json();
   } catch (error) {
     return error;
