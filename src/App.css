@@ -68,8 +68,17 @@ p, a, label, input, button, div, small, textarea, input, select {
   pointer-events: none;
 }
 
+.autocomplete-container {
+  position: relative;
+}
+
 .autocomplete {
   margin-top: 3px;
+  height: 240px;
+  overflow: auto;
+  position: absolute;
+  width: 100%;
+  border-radius: var(--border-radius);
 }
 
 .city {
