@@ -1,0 +1,116 @@
+:root {
+  --font-family: 'Nunito', sans-serif;
+  --text-size: 1.1rem;
+  --text-color: #313746;
+  --main-color: #EC6E4C;
+  --border-radius: 12px;
+}
+
+body {
+  background-color: #F2F2F2;
+  font-family: var(--font-family);
+  font-size: var(--text-size);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p, a, label, input, button, div, small, textarea, input, select {
+  font-family: var(--font-family);
+  color: var(--text-color);
+}
+
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 600,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.App {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 12px 0;
+}
+
+.search-input-container {
+  position: relative;
+  margin-top: 20px;
+}
+
+.search-input-container input {
+  width: 100%;
+  border-radius: var(--border-radius);
+  border: none;
+  padding: 15px 15px 15px 50px;
+  font-size: 1rem;
+  border: 1px solid transparent;
+}
+
+.search-input-container input:focus {
+  outline: none;
+  border: 1px solid var(--main-color);
+}
+
+.search-input-container .search-icon {
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  color: #4e4e4e;
+  pointer-events: none;
+}
+
+.autocomplete {
+  margin-top: 3px;
+}
+
+.city {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 8px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.city:hover {
+  background-color: var(--main-color);
+  color: #000;
+}
+
+.city:first-child {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.city:last-child {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.city .left {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.city .left .location-icon {
+  color: #4e4e4e;
+  margin-right: 6px;
+}
+
+.city .right {
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .search-input-container {
+    margin-top: 10px;
+  }
+}

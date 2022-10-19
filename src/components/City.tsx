@@ -12,11 +12,11 @@ const City = ({ city, selectCity }: CityProps) => {
 
   return (
     <div tabIndex={0} className='city' onKeyDown={handleKeyDown} onClick={() => selectCity(city)} role='button'>
-      <div>
-        <span className='material-symbols-rounded'>location_on</span>
+      <div className='left'>
+        <span className='location-icon material-symbols-rounded'>location_on</span>
         { city.nom }
       </div>
-      <p>{ city.departement.nom } - { city.departement.code }</p>
+      <p className='right'>{ city.departement.nom } - { city.departement.code }</p>
     </div>
   );
 };

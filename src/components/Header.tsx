@@ -15,8 +15,8 @@ const Header = ({
 }: HeaderProps) => (
   <header>
     <div className='search-input-container'>
-      <span className='material-symbols-rounded'>search</span>
-      <input type='text' value={cityName} onChange={handleChange} />
+      <span className='search-icon material-symbols-rounded'>search</span>
+      <input type='text' value={cityName} onChange={handleChange} placeholder='Chercher une ville' />
     </div>
 
     <div className='autocomplete'>
