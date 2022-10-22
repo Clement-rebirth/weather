@@ -7,6 +7,8 @@ import { fetchWeather } from './features/weather/weatherSlice';
 
 import Header from './components/Header';
 import CurrentWeather from './components/CurrentWeather';
+import HourlyForecast from './components/HourlyForecast';
+import Error from './components/Error';
 
 import './App.css';
 
@@ -17,9 +19,9 @@ const App = () => {
 
   const dispatch = useAppDispatch();
 
-  const { cities } = useAppSelector(state => state.city);
-  const { coordinates } = useAppSelector(state => state.coordinate);
-  const { weather } = useAppSelector(state => state.weather);
+  const { error: cityError, cities } = useAppSelector(state => state.city);
+  const { error: coordinatesError, coordinates } = useAppSelector(state => state.coordinate);
+  const { error: weatherError, weather } = useAppSelector(state => state.weather);
 
   useEffect(() => {
     if (localStorage.getItem('city')) {
@@ -63,6 +65,10 @@ const App = () => {
     setShowAutocomplete(true);
   };
 
+  const errors = [cityError, coordinatesError, weatherError];
+
+  if (errors.join('').length > 0) return <Error errors={errors} />;
+
   return (
     <div className='App'>
       <Header
@@ -74,6 +80,7 @@ const App = () => {
       />
 
       <CurrentWeather weather={weather} />
+      <HourlyForecast weather={weather} />
     </div>
   );
 };
