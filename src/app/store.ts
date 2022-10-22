@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import forecastReducer from '../features/forecast/forecastSlice';
+import weatherReducer from '../features/weather/weatherSlice';
 import cityReducer from '../features/city/citySlice';
 import coordinateReducer from '../features/coordinate/coordinateSlice';
 
 const store = configureStore({
   reducer: {
-    forecast: forecastReducer,
     city: cityReducer,
     coordinate: coordinateReducer,
+    weather: weatherReducer,
   },
 });
 
