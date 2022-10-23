@@ -12,7 +12,7 @@ const getWeatherImageUrlWithCode = (code: number, isDay: boolean): string => {
     case 230:
     case 231:
     case 232:
-      imageName = 't04';
+      imageName = 'thunderstorm';
       break;
     case 300:
     case 301:
@@ -23,19 +23,19 @@ const getWeatherImageUrlWithCode = (code: number, isDay: boolean): string => {
     case 313:
     case 314:
     case 321:
-      imageName = 'r01';
+      imageName = 'rain';
       break;
     case 500:
     case 501:
-    case 502:
-      imageName = 'r05';
+      imageName = 'rain';
       break;
+    case 502:
     case 503:
     case 504:
-      imageName = 'r03';
+      imageName = 'heavy-rain';
       break;
     case 511:
-      imageName = 'f01';
+      imageName = 'freezing-rain';
       break;
     case 520:
     case 521:
@@ -46,19 +46,19 @@ const getWeatherImageUrlWithCode = (code: number, isDay: boolean): string => {
     case 600:
     case 601:
     case 602:
-      imageName = 's01';
+      imageName = 'snow';
       break;
     case 611:
     case 612:
     case 613:
     case 615:
     case 616:
-      imageName = 's02';
+      imageName = 'rain-and-snow';
       break;
     case 620:
     case 621:
     case 622:
-      imageName = 's01';
+      imageName = 'snow';
       break;
     case 701:
     case 711:
@@ -70,29 +70,29 @@ const getWeatherImageUrlWithCode = (code: number, isDay: boolean): string => {
     case 762:
     case 771:
     case 781:
-      imageName = 'a01';
+      imageName = 'mist';
       break;
     case 800:
-      imageName = 'c01';
+      imageName = 'clear';
       break;
     case 801:
-      imageName = 'c02';
+      imageName = 'scattered-clouds';
       break;
     case 802:
-      imageName = 'c02';
+      imageName = 'scattered-clouds';
       break;
     case 803:
-      imageName = 'c03';
+      imageName = 'broken-clouds';
       break;
     case 804:
-      imageName = 'c04';
+      imageName = 'overcast-clouds';
       break;
     default:
       alert(`Unknown code '${code}'`);
       console.error(`Unknown code '${code}'`);
   }
 
-  imageName += isDay ? 'd' : 'n';
+  imageName += isDay ? '-d' : '-n';
 
   return `https://firebasestorage.googleapis.com/v0/b/weather-9bf6a.appspot.com/o/weather-images%2F${imageName}.png?alt=media&token=f485660b-06f4-4baf-9bb3-b2b285268cdb`;
 };

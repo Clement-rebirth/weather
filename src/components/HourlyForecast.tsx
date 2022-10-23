@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { HourWeather as HourWeatherSchema, Weather } from '../types/weather';
 
 import DateSeparator from './DateSeparator';
-import HourWeather from './HourWeather';
+import HourForecast from './HourForecast';
 
 interface HourlyForecastProps {
   weather: Weather | null;
@@ -41,7 +41,7 @@ const HourlyForecast = ({ weather }: HourlyForecastProps) => {
           return (
             <Fragment key={index}>
               { showDate && <DateSeparator date={currentDate} /> }
-              <HourWeather weather={hourWeather} />
+              <HourForecast weather={hourWeather} />
             </Fragment>
           );
         })}

@@ -1,14 +1,14 @@
-import { HourWeather as HourWeatherSchema } from '../types/weather';
+import { HourWeather } from '../types/weather';
 import firstLetterUppercase from '../utils/firstLetterUppercase';
 import formatTime from '../utils/formatTime';
 import getWeatherImageUrlWithCode from '../utils/getWeatherImageUrlWithCode';
 import roundToNearestTen from '../utils/roundToNearestTen';
 
-interface HourWeatherProps {
-  weather: HourWeatherSchema;
+interface HourForecastProps {
+  weather: HourWeather;
 }
 
-const HourWeather = ({ weather }: HourWeatherProps) => {
+const HourForecast = ({ weather }: HourForecastProps) => {
   let weatherImageUrl = '';
   let description = '';
 
@@ -32,4 +32,4 @@ const HourWeather = ({ weather }: HourWeatherProps) => {
   );
 };
 
-export default HourWeather;
+export default HourForecast;
