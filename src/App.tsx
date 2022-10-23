@@ -34,6 +34,8 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    let intervalId = 0;
+
     // check if at least one result exists
     if (coordinates && coordinates[0]) {
       const lat = coordinates[0].latitude;
@@ -41,7 +43,13 @@ const App = () => {
       const lang = 'fr';
 
       dispatch(fetchWeather({ lat, long, lang }));
+
+      intervalId = window.setInterval(() => {
+        dispatch(fetchWeather({ lat, long, lang }));
+      }, 60 * 60 * 1000); // every hour
     }
+
+    return () => clearInterval(intervalId);
   }, [coordinates, dispatch]);
 
   useEffect(() => {
