@@ -3,6 +3,7 @@
   --text-size: 1.1rem;
   --text-color: #313746;
   --main-color: #EC6E4C;
+  --main-bg-color: #fff;
   --border-radius: 12px;
 }
 
@@ -38,12 +39,17 @@ p, a, label, input, button, div, small, textarea, input, select {
   padding: 0 12px 0;
 }
 
+.d-none {
+  display: none;
+}
+
 .search-input-container {
   position: relative;
   margin-top: 20px;
 }
 
 .search-input-container input {
+  background-color: var(--main-bg-color);
   width: 100%;
   border-radius: var(--border-radius);
   border: none;
@@ -86,7 +92,7 @@ p, a, label, input, button, div, small, textarea, input, select {
   align-items: center;
   justify-content: space-between;
   padding: 12px 8px;
-  background-color: #fff;
+  background-color: var(--main-bg-color);
   cursor: pointer;
 }
 
@@ -116,6 +122,120 @@ p, a, label, input, button, div, small, textarea, input, select {
 
 .city .right {
   margin: 0;
+}
+
+.current-weather,
+.hourly,
+.daily {
+  background-color: var(--main-bg-color);
+  border-radius: var(--border-radius);
+  padding: 20px 20px;
+  margin-bottom: 10px;
+}
+
+.current-weather {
+  margin-top: 10px;
+}
+
+.current-weather .top {
+  border-bottom: 1px solid rgb(186, 186, 186);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.current-weather .temp {
+  font-size: 6rem;
+  margin: 20px 0 0;
+  margin-top: 0;
+}
+
+.current-weather .top .right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.current-weather .top .right p {
+  margin: -20px 0 0;
+}
+
+.current-weather .bottom {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.current-weather .bottom p {
+  margin-top: 0;
+}
+
+.current-weather .bottom .left p:last-child,
+.current-weather .bottom .right p:last-child {
+  margin-bottom: 0;
+}
+
+.hourly .hourly-container {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.hourly > p {
+  margin-top: 0;
+}
+
+.hourly img {
+  width: 50px;
+}
+
+.hourly .hour {
+  margin: 0 15px;
+}
+
+.hourly .date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px 0;
+}
+
+.hourly .date .separator {
+  width: 1px;
+  background-color: rgb(186, 186, 186);
+  height: 120px;
+}
+
+.hourly .precipitation-prob {
+  color: #47c4dd;
+}
+
+.hourly .hour > div p {
+  margin: 0 0 5px;
+}
+
+.hourly .date > p {
+  margin: 0 0 5px;
+}
+
+.hourly .hour {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hourly .hour .temp {
+  margin-top: 0;
+}
+
+footer {
+  background-color: var(--main-bg-color);
+  border-radius: var(--border-radius);
+  padding: 18px 25px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @media (max-width: 720px) {

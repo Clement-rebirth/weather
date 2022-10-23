@@ -22,16 +22,17 @@ const DayForecast = ({ weather }: DayForecastProps) => {
     description = weather.weather[0].description;
   }
 
-  let dayName = getDayName(forecastDate);
+  const dayName = getDayName(forecastDate);
+  let dayText = `${dayName} ${forecastDate.getDate()}`;
 
   if (currentDate.getDate() + 1 === forecastDate.getDate()) {
-    dayName = 'Demain';
+    dayText = 'Demain';
   }
 
   return (
     <div className='day'>
       <div className='left'>
-        <p>{ dayName } { forecastDate.getDate() }</p>
+        <p>{ dayText }</p>
         <div className='img-container'>
           <img src={weatherImageUrl} alt={description} />
           <p>{ precipitationProb >= 10 ? `${precipitationProb} %` : '' }</p>

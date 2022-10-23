@@ -40,8 +40,8 @@ const CurrentWeather = ({ weather }: CurrentWeatherProps) => {
     <div className='current-weather'>
       <div className='top'>
         <div className='left'>
-          <p>{ temp }°C</p>
-          <p>Ressenti { feelsLike }°</p>
+          <p className='temp'>{ temp }°C</p>
+          <p className='feels-like'>Ressenti { feelsLike }°</p>
           <p>min: { tempMin }° / max: { tempMax }°</p>
         </div>
         <div className='right'>

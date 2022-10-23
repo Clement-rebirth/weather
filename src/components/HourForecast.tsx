@@ -24,10 +24,12 @@ const HourForecast = ({ weather }: HourForecastProps) => {
 
   return (
     <div className='hour'>
-      <p>{ formatTime(date) }</p>
-      <img src={weatherImageUrl} alt={description} />
-      <p>{ precipitationProb >= 10 ? `${precipitationProb} %` : '' }</p>
-      <p>{ temp }°</p>
+      <div>
+        <p>{ formatTime(date) }</p>
+        <img src={weatherImageUrl} alt={description} />
+        <p className='precipitation-prob'>{ precipitationProb >= 10 ? `${precipitationProb} %` : '' }</p>
+      </div>
+      <p className='temp'>{ temp }°</p>
     </div>
   );
 };

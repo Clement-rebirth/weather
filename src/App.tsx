@@ -10,6 +10,7 @@ import CurrentWeather from './components/CurrentWeather';
 import HourlyForecast from './components/HourlyForecast';
 import Error from './components/Error';
 import DailyForecast from './components/DailyForecast';
+import Footer from './components/Footer';
 
 import './App.css';
 
@@ -91,6 +92,8 @@ const App = () => {
       <CurrentWeather weather={weather} />
       <HourlyForecast weather={weather} />
       <DailyForecast weather={weather} />
+
+      <Footer />
     </div>
   );
 };

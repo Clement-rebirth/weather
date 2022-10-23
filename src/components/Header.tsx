@@ -19,7 +19,7 @@ const Header = ({
       <input type='text' value={cityName} onChange={handleChange} placeholder='Chercher une ville' />
     </div>
 
-    <div className='autocomplete-container'>
+    <div className={`autocomplete-container ${showAutocomplete ? '' : 'd-none'}`}>
       <div className='autocomplete'>
         { (cities && showAutocomplete) && cities.map((city, index) => (
           <City key={index} city={city} selectCity={selectCity} />
