@@ -2,7 +2,7 @@
   --font-family: 'Nunito', sans-serif;
   --text-size: 1.1rem;
   --text-color: #313746;
-  --main-color: #EC6E4C;
+  --main-color: #47c4dd;
   --main-bg-color: #fff;
   --border-radius: 12px;
 }
@@ -154,6 +154,7 @@ p, a, label, input, button, div, small, textarea, input, select {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: -30px;
 }
 
 .current-weather .top .right p {
@@ -207,7 +208,7 @@ p, a, label, input, button, div, small, textarea, input, select {
 }
 
 .hourly .precipitation-prob {
-  color: #47c4dd;
+  color: var(--main-color);
 }
 
 .hourly .hour > div p {
@@ -226,6 +227,50 @@ p, a, label, input, button, div, small, textarea, input, select {
 
 .hourly .hour .temp {
   margin-top: 0;
+}
+
+.daily {
+  padding-bottom: 0;
+}
+
+.daily > p {
+  margin-top: 0;
+}
+
+.daily .day {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+}
+
+.daily .day {
+  border-top: 1px solid rgb(186, 186, 186);
+}
+
+.daily .day .left {
+  display: flex;
+  align-items: center;
+}
+
+.daily .day .left > p {
+  width: 105px;
+}
+
+.daily .day .left img {
+  max-height: 50px;
+}
+
+.daily .day .img-container {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.daily .img-container p {
+  margin: -6px 0 0;
+  color: var(--main-color);
 }
 
 footer {
