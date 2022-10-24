@@ -19,7 +19,7 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-  loading: true,
+  loading: false,
   coordinates: null,
   error: '',
 };

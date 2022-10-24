@@ -14,7 +14,7 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-  loading: true,
+  loading: false,
   weather: null,
   error: '',
 };

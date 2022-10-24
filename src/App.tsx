@@ -11,6 +11,7 @@ import HourlyForecast from './components/HourlyForecast';
 import Error from './components/Error';
 import DailyForecast from './components/DailyForecast';
 import Footer from './components/Footer';
+import Loading from './components/Loading';
 
 import './App.css';
 
@@ -22,8 +23,16 @@ const App = () => {
   const dispatch = useAppDispatch();
 
   const { error: cityError, cities } = useAppSelector(state => state.city);
-  const { error: coordinatesError, coordinates } = useAppSelector(state => state.coordinate);
-  const { error: weatherError, weather } = useAppSelector(state => state.weather);
+  const {
+    loading: coordinatesLoading,
+    error: coordinatesError,
+    coordinates,
+  } = useAppSelector(state => state.coordinate);
+  const {
+    loading: weatherLoading,
+    error: weatherError,
+    weather,
+  } = useAppSelector(state => state.weather);
 
   useEffect(() => {
     if (localStorage.getItem('city')) {
@@ -79,6 +88,10 @@ const App = () => {
 
   if (errors.join('').length > 0) return <Error errors={errors} />;
 
+  const firstCoordinatesLoading = coordinatesLoading && coordinates === null;
+  const firstWeatherLoading = weatherLoading && weather === null;
+  const firstLaoding = firstCoordinatesLoading || firstWeatherLoading;
+
   return (
     <div className='App'>
       <Header
@@ -88,6 +101,8 @@ const App = () => {
         selectCity={selectCity}
         showAutocomplete={showAutocomplete}
       />
+
+      { firstLaoding && <Loading /> }
 
       <CurrentWeather weather={weather} />
       <HourlyForecast weather={weather} />
