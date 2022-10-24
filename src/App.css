@@ -320,6 +320,27 @@ footer {
   justify-content: space-between;
 }
 
+.error {
+  background-color: #fff;
+  padding: 15px;
+  margin: 10px;
+  border-radius: var(--border-radius);
+}
+
+.error p {
+  margin-top: 0;
+}
+
+.error button {
+  border: none;
+  padding: 6px 10px;
+  font-size: 1rem;
+  background-color: #0095ff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
 @media (max-width: 720px) {
   .search-input-container {
     margin-top: 10px;
