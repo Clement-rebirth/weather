@@ -4,11 +4,32 @@
   --text-color: #313746;
   --main-color: #47c4dd;
   --main-bg-color: #fff;
+  --app-bg-color: #F2F2F2;
   --border-radius: 12px;
+  --icon-color: #4E4E4E;
+}
+
+body.day-color {
+  --app-bg-color: linear-gradient(180deg, rgba(69,152,210,1) 0%, rgba(175,208,227,1) 100%);
+  --main-bg-color: rgba(255, 255, 255, 0.9);
+}
+
+body.night-color {
+  --app-bg-color: #0F1037;
+  --main-bg-color: #282C4B;
+  --text-color: #fff;
+  --icon-color: #fff;
+}
+
+body.cloudy-color {
+  --app-bg-color: #aaa;
+  --main-bg-color: rgba(255, 255, 255, 0.7);
+  /* --text-color: #fff;
+  --icon-color: #fff; */
 }
 
 body {
-  background-color: #F2F2F2;
+  background: var(--app-bg-color);
   font-family: var(--font-family);
   font-size: var(--text-size);
   color: var(--text-color);
@@ -63,6 +84,10 @@ p, a, label, input, button, div, small, textarea, input, select {
   border: 1px solid var(--main-color);
 }
 
+.night-color .search-input-container input:focus {
+  border: 1px solid #004885;
+}
+
 .search-input-container .search-icon {
   position: absolute;
   left: 15px;
@@ -70,8 +95,12 @@ p, a, label, input, button, div, small, textarea, input, select {
   bottom: 0;
   display: flex;
   align-items: center;
-  color: #4e4e4e;
+  color: var(--icon-color);
   pointer-events: none;
+}
+
+.night-color .city:hover {
+  background-color: #004885;
 }
 
 .autocomplete-container {
@@ -116,7 +145,7 @@ p, a, label, input, button, div, small, textarea, input, select {
 }
 
 .city .left .location-icon {
-  color: #4e4e4e;
+  color: var(--icon-color);
   margin-right: 6px;
 }
 
@@ -142,6 +171,10 @@ p, a, label, input, button, div, small, textarea, input, select {
   display: flex;
   justify-content: space-between;
   padding-bottom: 20px;
+}
+
+.current-weather .top .right img {
+  max-width: 100%;
 }
 
 .current-weather .temp {
@@ -192,6 +225,16 @@ p, a, label, input, button, div, small, textarea, input, select {
 
 .hourly .hour {
   margin: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hourly .hour > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hourly .date {
@@ -217,12 +260,6 @@ p, a, label, input, button, div, small, textarea, input, select {
 
 .hourly .date > p {
   margin: 0 0 5px;
-}
-
-.hourly .hour {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .hourly .hour .temp {
@@ -286,5 +323,34 @@ footer {
 @media (max-width: 720px) {
   .search-input-container {
     margin-top: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .current-weather .temp {
+    font-size: 13vw;
+  }
+
+  .current-weather .top .right img {
+    max-width: 70%;
+  }
+
+  .current-weather .top .right {
+    margin-right: -30px;
+  }
+}
+
+@media (max-width: 425px) {
+  .current-weather .feels-like {
+    font-size: 1rem;
+    margin-top: 5px;
+  }
+
+  .current-weather .min-max-temp {
+    font-size: 1rem;
+  }
+
+  footer p {
+    margin: 0;
   }
 }
