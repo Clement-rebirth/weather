@@ -9,7 +9,7 @@
   --icon-color: #4E4E4E;
 }
 
-body.day-color {
+body.sunny-color {
   --app-bg-color: linear-gradient(180deg, rgba(69,152,210,1) 0%, rgba(175,208,227,1) 100%);
   --main-bg-color: rgba(255, 255, 255, 0.9);
 }

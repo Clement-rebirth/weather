@@ -1,5 +1,6 @@
 import { Weather } from '../types/weather';
 import firstLetterUppercase from '../utils/firstLetterUppercase';
+import getWeatherClassName from '../utils/getWeatherClassName';
 import getWeatherImageUrlWithCode from '../utils/getWeatherImageUrlWithCode';
 
 interface CurrentWeatherProps {
@@ -20,6 +21,9 @@ const CurrentWeather = ({ weather }: CurrentWeatherProps) => {
 
   if (weather && weather.daily[0] && weather.current.weather[0]) {
     const { id, icon } = weather.current.weather[0];
+
+    const weatherClassName = getWeatherClassName(id, icon.includes('n'));
+    document.body.className = weatherClassName;
 
     weatherImageUrl = getWeatherImageUrlWithCode(id, icon.includes('d'));
     temp = Math.round(weather.current.temp).toString();

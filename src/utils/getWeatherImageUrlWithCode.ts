@@ -41,7 +41,7 @@ const getWeatherImageUrlWithCode = (code: number, isDay: boolean): string => {
     case 521:
     case 522:
     case 531:
-      imageName = 'r01';
+      imageName = 'rain';
       break;
     case 600:
     case 601:
