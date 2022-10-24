@@ -266,10 +266,6 @@ p, a, label, input, button, div, small, textarea, input, select {
   margin-top: 0;
 }
 
-.daily {
-  padding-bottom: 0;
-}
-
 .daily > p {
   margin-top: 0;
 }
@@ -283,6 +279,10 @@ p, a, label, input, button, div, small, textarea, input, select {
 
 .daily .day {
   border-top: 1px solid rgb(186, 186, 186);
+}
+
+.daily .day:last-child {
+  border-bottom: 1px solid rgb(186, 186, 186);
 }
 
 .daily .day .left {
