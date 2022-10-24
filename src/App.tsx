@@ -47,7 +47,7 @@ const App = () => {
 
       intervalId = window.setInterval(() => {
         dispatch(fetchWeather({ lat, long, lang }));
-      }, 60 * 60 * 1000); // every hour
+      }, 20 * 60 * 1000); // every 20 minutes
     }
 
     return () => clearInterval(intervalId);

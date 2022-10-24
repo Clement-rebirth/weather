@@ -211,7 +211,7 @@ p, a, label, input, button, div, small, textarea, input, select {
 
 .hourly .hourly-container {
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
 }
 
