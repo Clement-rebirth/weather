@@ -198,6 +198,11 @@ p, a, label, input, button, div, small, textarea, input, select {
   padding-top: 20px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.current-weather .bottom .left {
+  margin-right: 8px;
 }
 
 .current-weather .bottom p {
@@ -368,10 +373,17 @@ footer {
   }
 
   .current-weather .min-max-temp {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    white-space: nowrap;
   }
 
   footer p {
     margin: 0;
+  }
+}
+
+@media (max-width: 387px) {
+  .current-weather .bottom p {
+    margin-bottom: 0;
   }
 }
