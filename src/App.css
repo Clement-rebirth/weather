@@ -414,6 +414,10 @@ footer {
     border-width: 3px;
   }
 
+  .current-weather .bottom p {
+    margin-bottom: 0;
+  }
+
   .current-weather .feels-like {
     font-size: 1rem;
     margin-top: 5px;
@@ -426,11 +430,5 @@ footer {
 
   footer p {
     margin: 0;
-  }
-}
-
-@media (max-width: 387px) {
-  .current-weather .bottom p {
-    margin-bottom: 0;
   }
 }
