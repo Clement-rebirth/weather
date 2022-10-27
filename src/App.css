@@ -8,6 +8,7 @@
   --border-radius: 12px;
   --icon-color: #4E4E4E;
   --autocomplete-bg-color: #fff;
+  --autocomplete-text-color: var(--text-color);
 }
 
 body.sunny-color {
@@ -115,6 +116,16 @@ p, a, label, input, button, div, small, textarea, input, select {
   position: absolute;
   width: 100%;
   border-radius: var(--border-radius);
+}
+
+body.night-color .autocomplete .location-icon,
+body.night-color .autocomplete .left,
+body.night-color .autocomplete .right {
+  color: var(--autocomplete-text-color);
+}
+
+body.night-color .city:hover * {
+  color: #fff;
 }
 
 .city {
