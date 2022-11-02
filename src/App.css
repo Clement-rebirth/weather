@@ -304,6 +304,7 @@ body.night-color .city:hover * {
 }
 
 .hourly .precipitation-prob {
+  white-space: nowrap;
   color: var(--main-color);
 }
 
